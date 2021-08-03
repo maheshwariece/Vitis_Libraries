@@ -247,6 +247,11 @@ ifeq (,$(OPENCV_INCLUDE))
 	@echo "Cannot find OpenCV include path. Please set OPENCV_INCLUDE variable" && false
 endif
 endif
+ifneq (,$(shell echo $(XPLATFORM) | awk '/u250/'))
+ifeq (,$(OPENCV_INCLUDE))
+	@echo "Cannot find OpenCV include path. Please set OPENCV_INCLUDE variable" && false
+endif
+endif
 ifneq (,$(shell echo $(XPLATFORM) | awk '/u50/'))
 ifeq (,$(OPENCV_INCLUDE))
 	@echo "Cannot find OpenCV include path. Please set OPENCV_INCLUDE variable" && false
@@ -258,6 +263,11 @@ ifeq (,$(OPENCV_INCLUDE))
 endif
 endif
 ifneq (,$(shell echo $(XPLATFORM) | awk '/u200/'))
+ifeq (,$(OPENCV_LIB))
+	@echo "Cannot find Opencv lib path. Please set OPENCV_LIB variable" && false
+endif
+endif
+ifneq (,$(shell echo $(XPLATFORM) | awk '/u250/'))
 ifeq (,$(OPENCV_LIB))
 	@echo "Cannot find Opencv lib path. Please set OPENCV_LIB variable" && false
 endif

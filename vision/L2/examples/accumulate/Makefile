@@ -62,12 +62,12 @@ HOST_ARCH ?= x86
 ifeq ($(findstring u280, $(DEVICE)), u280)
 $(error [ERROR]: This project is not supported for $(DEVICE).)
 endif
-ifeq ($(findstring u250, $(DEVICE)), u250)
-$(error [ERROR]: This project is not supported for $(DEVICE).)
-endif
+
+
 
 # #################### Checking if DEVICE in whitelist ############################
 ifneq ($(findstring u200, $(DEVICE)), u200)
+ifneq ($(findstring u250, $(DEVICE)), u250)
 ifneq ($(findstring aws-vu9p-f1, $(DEVICE)), aws-vu9p-f1)
 ifneq ($(findstring vck190, $(DEVICE)), vck190)
 ifneq ($(findstring zcu102, $(DEVICE)), zcu102)
@@ -151,6 +151,9 @@ CXXFLAGS += --sysroot=$(SYSROOT)
 LDFLAGS += -L$(SYSROOT)/usr/lib
 LDFLAGS += -L${SYSROOT}/lib
 else ifneq (,$(shell echo $(XPLATFORM) | awk '/u200/'))
+CXXFLAGS += -I$(OPENCV_INCLUDE)
+LDFLAGS += -L$(OPENCV_LIB)
+else ifneq (,$(shell echo $(XPLATFORM) | awk '/u250/'))
 CXXFLAGS += -I$(OPENCV_INCLUDE)
 LDFLAGS += -L$(OPENCV_LIB)
 else ifneq (,$(shell echo $(XPLATFORM) | awk '/aws-vu9p-f1/'))

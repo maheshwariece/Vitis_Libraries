@@ -5,7 +5,7 @@
     ], 
     "flow": "vitis", 
     "platform_whitelist": [
-        "u200",
+        "u250",
         "aws-vu9p-f1", 
         "vck190", 
         "zcu102", 
@@ -14,10 +14,10 @@
     ], 
     "platform_blacklist": [
         "u280", 
-        "u250"
+        "u200"
     ], 
     "platform_properties": {
-        "u200": {
+        "u250": {
             "host": {
                 "compiler": {
                     "includepaths": [
@@ -185,7 +185,7 @@
         {
             "env": "OPENCV_INCLUDE",
             "platform" :[
-                "u200",
+                "u250",
                 "u50",
 				"aws-vu9p-f1"
             ], 
@@ -194,7 +194,7 @@
         {
             "env": "OPENCV_LIB",
             "platform" :[
-                "u200",
+                "u250",
                 "u50",
 				"aws-vu9p-f1"
             ], 
